@@ -30,11 +30,19 @@ Glaura was trained using Google Colab with detailed specifications as follows
 
 ## Dataset
 This is an improved machine-learning-ready glaucoma dataset using a balanced subset of standardized fundus images from the Rotterdam EyePACS AIROGS [1] set. This dataset is split into training, validation, and test folders which contain 4000 (~84%), 385 (~8%), and 385 (~8%) fundus images in each class respectively. Each training set has a folder for each class: referable glaucoma (RG) and non-referable glaucoma (NRG).
-![RG (Referable Glaucoma)](EyePACS-Glaucoma-57.jpg)
+<div style="display: flex; align-items: center; justify-content: center;">
+  <div style="text-align: center; margin-right: 20px;">
+    <img src="EyePACS-Glaucoma-57.jpg" alt="RG (Referable Glaucoma)" width="300">
+    <p><strong>RG</strong></p>
+  </div>
+  <div style="text-align: center;">
+    <img src="EyePACS-NRG-37.jpg" alt="NRG (Non-Referable Glaucoma)" width="300">
+    <p><strong>NRG</strong></p>
+  </div>
+</div>
 
-![NRG (Non-Referable Glaucoma](EyePACS-NRG-37.jpg)
 
-- Link: [link](https://www.kaggle.com/datasets/deathtrooper/glaucoma-dataset-eyepacs-airogs-light-v2)
+- Link: [Click here](https://www.kaggle.com/datasets/deathtrooper/glaucoma-dataset-eyepacs-airogs-light-v2)
 
 ## Results
 ### Model Performance
