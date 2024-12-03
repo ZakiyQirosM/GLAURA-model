@@ -30,21 +30,10 @@ Glaura was trained using Google Colab with detailed specifications as follows
 
 ## Dataset
 This is an improved machine-learning-ready glaucoma dataset using a balanced subset of standardized fundus images from the Rotterdam EyePACS AIROGS set. This dataset is split into training, validation, and test folders which contain 4000 (~84%), 385 (~8%), and 385 (~8%) fundus images in each class respectively. Each training set has a folder for each class: referable glaucoma (RG) and non-referable glaucoma (NRG).
-<table>
-  <tr>
-    <td style="text-align: center;">
-      <img src="EyePACS-Glaucoma-57.jpg" alt="RG (Referable Glaucoma)" width="300">
-      <p><strong>RG (Referable Glaucoma)</strong></p>
-    </td>
-    <td style="text-align: center;">
-      <img src="EyePACS-NRG-37.jpg" alt="NRG (Non-Referable Glaucoma)" width="300">
-      <p><strong>NRG (Non-Referable Glaucoma)</strong></p>
-    </td>
-  </tr>
-</table>
 
-
-
+| ![RG](Pictures/EyePACS-Glaucoma-57.jpg "RG") | ![NRG](Pictures/EyePACS-NRG-37.jpg "NRG") |
+| --- | --- |
+| **RG (Referable Glaucoma)** | **NRG (Non-Referable Glaucoma)** |
 
 - Link: [Click here](https://www.kaggle.com/datasets/deathtrooper/glaucoma-dataset-eyepacs-airogs-light-v2)
 
@@ -58,27 +47,54 @@ Accuracy, precision, f1 score, and recall metrics are used as model benchmarks. 
 | ----- | -------- | --------- | ----- | ------- | ---- |
 | DenseNet169 | 92.5% | 89.2% | 96.8% | 92.9% | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
 | DenseNet121 | 93.3% | 93.9% | 92.7% | 93.3% | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
-| ResNet50 | 93.38% | 91.3% | 95.8% | 93.5% | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
-| Glaura | 94% | 89.8% | 93.3% | 91.5% | without augmentation |
-| DenseNet169 | % | % | % | % | without augmentation |
+| ResNet50 | 93.3% | 91.3% | 95.8% | 93.5% | with augmentation (rotation between -20 until 20 deg, horizontal flip, noise) |
+| Glaura | % | % | % | % | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
+| DenseNet169 | 93.8% | 91% | 97.4% | 94.1% | without augmentation |
 | ResNet50 | % | % | % | % | without augmentation |
+| Glaura | 91.3% | 89.8% | 93.3% | 91.5% | without augmentation |
 
 
 
 #### 2. Ablation Study
-Any improvements or modifications of your base model, should be summarized in this table. Feel free to adjust the columns in the table below.
+here are some experiments and hyperparameter tuning on the main model (Glaura)
 
-| model | layer_A | layer_B | layer_C | ... | top1_acc | top5_acc |
-| --- | --- | --- | --- | --- | --- | --- |
-| vit_b_16 | Conv(3x3, 64) x2 | Conv(3x3, 512) x3 | Conv(1x1, 2048) x3 | ... | 77.43% | 80.08% |
-| vit_b_16 | Conv(3x3, 32) x3 | Conv(3x3, 128) x3 | Conv(1x1, 1028) x2 | ... | 72.11% | 76.84% |
-| ... | ... | ... | ... | ... | ... | ... |
+| layer_A | layer_B | layer_C | layer_D | layer_E | Layer_F | Layer_G | layer_H | layer_I | layer_J | layer_K | layer_L | layer_M | layer_N | layer_O | layer_P | layer_Q | layer_R | layer_S | layer_T | layer_U | layer_V | layer_W | layer_X | layer_Y | layer_Z | Accuracy | Precision |
+| ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------- | -------- | -------- | -------- | -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |
+| Conv2D(32, (3, 3)), BatchNorm, MaxPooling(2,2)  | Conv2D(64, (3, 3)), BatchNorm, MaxPooling(2,2)  | Conv2D(128, (3, 3)), BatchNorm, MaxPooling(2,2) | Conv2D(256, (3, 3), BatchNorm, MaxPooling(2,2) | Flatten | Dense(128), Dropout(0.5), BatchNorm | Dense(64), Dropout(0.5), BatchNorm | Dense(32), Dropout(0.5), BatchNorm | Dense(16), Dropout(0.5), BatchNorm | Dense(8), Dropout(0.5), BatchNorm | Dense(4), Dropout(0.5), BatchNorm | Dense(1) | | | | | | | | | | | | | | | 52.6% | 57.1% |
+| Conv2D(64, (3, 3)), BatchNorm | Conv2D(32, (3, 3)), MaxPooling(2,2) | Conv2D(128, (3, 3)), BatchNorm | Conv2D(128, (3, 3)), Dropout(0.3) | Conv2D(64, (3, 3)), BatchNorm | Conv2D(64, (3, 3)), Dropout(0.3) | Flatten | Dense(128), Dropout(0.5), BatchNorm | Dense(64), Dropout(0.5), BatchNorm | Dense(32), Dropout(0.5), BatchNorm | Dense(16), Dropout(0.5), BatchNorm | Dense(4) | Dense(1) | 50.3% | 71.4% |
 
 #### 3. Training/Validation Curve
-Insert an image regarding your training and evaluation performances (especially their losses). The aim is to assess whether your model is fit, overfit, or underfit.
+This is the final model's curve of Loss and Accuracy. The curve shows that train and validation is balance enough
+![Loss and Accuracy](Pictures/Loss_accuracy_graphic.png)
  
 ### Testing
-Show some implementations (demos) of this model. Show **at least 10 images** of how your model performs on the testing data.
+![Confussion Matrix](Pictures/Confussion_Matrix.png)
+
+Classification Report:
+|             | precision | recall | f1-score | support |
+| ----------- | --------- | ------ | -------- | ------- |
+|         NRG |      0.93 |   0.89 |    0.91  |     385 |
+|         RG  |      0.90 |   0.93 |    0.91  |     385 |
+|    accuracy |           |        |    0.91  |     770 |
+|   macro avg |      0.91 |   0.91 |    0.91  |     770 |
+|weighted avg |      0.91 |   0.91 |    0.91  |     770 |
+
+
+To ensure model's performance, tests were conducted using new images that the model has never seen before
+| Image | Lable | Predict |
+| ----  | ----- | ------- |
+| [NRG_1.jpg](Pictures/Test/NRG_1.jpg) | NRG | NRG | 
+| [NRG_2.jpg](Pictures/Test/NRG_2.jpg) | NRG | RG | 
+| [NRG_3.jpg](Pictures/Test/NRG_3.jpg) | NRG | NRG | 
+| [NRG_4.jpg](Pictures/Test/NRG_4.jpg) | NRG | NRG | 
+| [NRG_5.jpg](Pictures/Test/NRG_5.jpg) | NRG | NRG | 
+| [RG_1.jpg](Pictures/Test/RG_1.jpg) | RG | RG | 
+| [RG_2.jpg](Pictures/Test/RG_2.jpg) | RG | RG | 
+| [RG_3.jpg](Pictures/Test/RG_3.jpg) | RG | RG | 
+| [RG_4.jpg](Pictures/Test/RG_4.jpg) | RG | RG | 
+| [RG_5.jpg](Pictures/Test/RG_5.jpg) | RG | RG |
+
+
 
 ### Deployment (Optional)
 Describe and show how you deploy this project (e.g., using Streamlit or Flask), if any.
