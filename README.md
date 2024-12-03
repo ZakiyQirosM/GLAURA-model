@@ -1,11 +1,11 @@
-# FINAL PROJECT TITLE HERE
+# GALURA - Galucoma Detection with Advanced Retinal Analysis
 
 ## Project Description
-Please describe your Startup Campus final project here. You may should your <b>model architecture</b> in JPEG or GIF.
+Glaura is an AI CNN model that can detect galucoma.
 
 ## Contributor
 | Full Name | Affiliation | Email | LinkedIn | Role |
-|-------------------------|--------------------------------------------------|--------------------------------|-----------------------------------------------------------------------------------------------------|-------------|
+|-----------|-------------|-------|----------|------|
 | Muhamad Ridwan Firmansyah | Universitas Siliwangi | muhridwanf12@gmail.com | [link](https://www.linkedin.com/in/muhamad-ridwan-firmansyah-a922b5243/) | Team Lead |
 | Rahmat Fauzi Prihastanto | Universitas Pamulang | zeekun0910@gmail.com | [link](https://www.linkedin.com/in/rahmat-fauzi-b555a11b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) | Team Member |
 | Zakiy Qiros Muhammad | Universitas Negeri Surabaya | zakiyqm@gmail.com | [link](https://www.linkedin.com/in/zakiy-qiros-muhammad-255a46309/) | Team Member |
@@ -18,19 +18,22 @@ Please describe your Startup Campus final project here. You may should your <b>m
 ### Prerequisite Packages (Dependencies)
 - pandas==2.1.0
 - PIL==11.0.0
-- 
+- tensorflow==2.17.1
 
 ### Environment
+Glaura was trained using Google Colab with detailed specifications as follows
 | | |
 | --- | --- |
-| CPU | Example: Apple M3 Pro 12-core CPU |
-| GPU | Example: Nvidia A100 (x1) |
-| ROM | Example: 1 TB SSD |
-| RAM | Example: 36 GB |
-| OS | Example: macOS Sonoma v14.1.1 |
+| GPU | Nvidia T4 (x1) |
+| ROM | 112.6 GB (Available Disk) |
+| RAM | 12.7 GB (Usable RAM) |
 
 ## Dataset
-Describe your dataset information here. Provide a screenshot for some of your dataset samples (for example, if you're using CIFAR10 dataset, then show an image for each class).
+This is an improved machine-learning-ready glaucoma dataset using a balanced subset of standardized fundus images from the Rotterdam EyePACS AIROGS [1] set. This dataset is split into training, validation, and test folders which contain 4000 (~84%), 385 (~8%), and 385 (~8%) fundus images in each class respectively. Each training set has a folder for each class: referable glaucoma (RG) and non-referable glaucoma (NRG).
+![RG (Referable Glaucoma)](EyePACS-Glaucoma-57.jpg)
+
+![NRG (Non-Referable Glaucoma](EyePACS-NRG-37.jpg)
+
 - Link: [link](https://www.kaggle.com/datasets/deathtrooper/glaucoma-dataset-eyepacs-airogs-light-v2)
 
 ## Results
@@ -108,4 +111,4 @@ If you find this project useful, we'd grateful if you cite this repository:
 For academic and non-commercial use only.
 
 ## Acknowledgement
-This project entitled <b>"YOUR PROJECT TITLE HERE"</b> is supported and funded by Startup Campus Indonesia and Indonesian Ministry of Education and Culture through the "**Kampus Merdeka: Magang dan Studi Independen Bersertifikasi (MSIB)**" program.
+This project entitled <b>"GALURA - Galucoma Detection with Advanced Retinal Analysis"</b> is supported and funded by Startup Campus Indonesia and Indonesian Ministry of Education and Culture through the "**Kampus Merdeka: Magang dan Studi Independen Bersertifikasi (MSIB)**" program.
