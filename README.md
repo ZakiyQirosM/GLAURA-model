@@ -5,6 +5,7 @@ Please describe your Startup Campus final project here. You may should your <b>m
 
 ## Contributor
 | Full Name | Affiliation | Email | LinkedIn | Role |
+|-------------------------|--------------------------------------------------|--------------------------------|-----------------------------------------------------------------------------------------------------|-------------|
 | Muhamad Ridwan Firmansyah | Universitas Siliwangi | muhridwanf12@gmail.com | [link](https://www.linkedin.com/in/muhamad-ridwan-firmansyah-a922b5243/) | Team Lead |
 | Rahmat Fauzi Prihastanto | Universitas Pamulang | zeekun0910@gmail.com | [link](https://www.linkedin.com/in/rahmat-fauzi-b555a11b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) | Team Member |
 | Zakiy Qiros Muhammad | Universitas Negeri Surabaya | zakiyqm@gmail.com | [link](https://www.linkedin.com/in/zakiy-qiros-muhammad-255a46309/) | Team Member |
