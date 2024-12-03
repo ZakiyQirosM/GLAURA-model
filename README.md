@@ -1,7 +1,7 @@
 # GALURA - Galucoma Detection with Advanced Retinal Analysis
 
 ## Project Description
-Glaura is an AI CNN model that can detect galucoma.
+Glaura is an AI CNN model that can detect galucoma.........
 
 ## Contributor
 | Full Name | Affiliation | Email | LinkedIn | Role |
@@ -26,45 +26,44 @@ Glaura was trained using Google Colab with detailed specifications as follows
 | --- | --- |
 | GPU | Nvidia T4 (x1) |
 | ROM | 112.6 GB (Available Disk) |
-| RAM | 12.7 GB (Usable RAM) |
+| RAM | 15 GB |
 
 ## Dataset
-This is an improved machine-learning-ready glaucoma dataset using a balanced subset of standardized fundus images from the Rotterdam EyePACS AIROGS [1] set. This dataset is split into training, validation, and test folders which contain 4000 (~84%), 385 (~8%), and 385 (~8%) fundus images in each class respectively. Each training set has a folder for each class: referable glaucoma (RG) and non-referable glaucoma (NRG).
-<div style="display: flex; align-items: center; justify-content: center;">
-  <div style="text-align: center; margin-right: 20px;">
-    <img src="EyePACS-Glaucoma-57.jpg" alt="RG (Referable Glaucoma)" width="300">
-    <p><strong>RG</strong></p>
-  </div>
-  <div style="text-align: center;">
-    <img src="EyePACS-NRG-37.jpg" alt="NRG (Non-Referable Glaucoma)" width="300">
-    <p><strong>NRG</strong></p>
-  </div>
-</div>
+This is an improved machine-learning-ready glaucoma dataset using a balanced subset of standardized fundus images from the Rotterdam EyePACS AIROGS set. This dataset is split into training, validation, and test folders which contain 4000 (~84%), 385 (~8%), and 385 (~8%) fundus images in each class respectively. Each training set has a folder for each class: referable glaucoma (RG) and non-referable glaucoma (NRG).
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="EyePACS-Glaucoma-57.jpg" alt="RG (Referable Glaucoma)" width="300">
+      <p><strong>RG (Referable Glaucoma)</strong></p>
+    </td>
+    <td style="text-align: center;">
+      <img src="EyePACS-NRG-37.jpg" alt="NRG (Non-Referable Glaucoma)" width="300">
+      <p><strong>NRG (Non-Referable Glaucoma)</strong></p>
+    </td>
+  </tr>
+</table>
+
+
 
 
 - Link: [Click here](https://www.kaggle.com/datasets/deathtrooper/glaucoma-dataset-eyepacs-airogs-light-v2)
 
 ## Results
 ### Model Performance
-Describe all results found in your final project experiments, including hyperparameters tuning and architecture modification performances. Put it into table format. Please show pictures (of model accuracy, loss, etc.) for more clarity.
 
 #### 1. Metrics
-Inform your model validation performances, as follows:
-- For classification tasks, use **Precision and Recall**.
-- For object detection tasks, use **Precision and Recall**. Additionaly, you may also use **Intersection over Union (IoU)**.
-- For image retrieval tasks, use **Precision and Recall**.
-- For optical character recognition (OCR) tasks, use **Word Error Rate (WER) and Character Error Rate (CER)**.
-- For adversarial-based generative tasks, use **Peak Signal-to-Noise Ratio (PNSR)**. Additionally, for specific GAN tasks,
-  - For single-image super resolution (SISR) tasks, use **Structural Similarity Index Measure (SSIM)**.
-  - For conditional image-to-image translation tasks (e.g., Pix2Pix), use **Inception Score**.
+Accuracy, precision, f1 score, and recall metrics are used as model benchmarks. For comparison, several models were also created.
 
-Feel free to adjust the columns in the table below.
+| Model | Accuracy | Precision | Recal | F1 Score| Note |
+| ----- | -------- | --------- | ----- | ------- | ---- |
+| DenseNet169 | 92.5% | 89.2% | 96.8% | 92.9% | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
+| DenseNet121 | 93.3% | 93.9% | 92.7% | 93.3% | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
+| ResNet50 | 93.38% | 91.3% | 95.8% | 93.5% | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
+| Glaura | 94% | 89.8% | 93.3% | 91.5% | without augmentation |
+| DenseNet169 | % | % | % | % | without augmentation |
+| ResNet50 | % | % | % | % | without augmentation |
 
-| model | epoch | learning_rate | batch_size | optimizer | val_loss | val_precision | val_recall | ... |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| vit_b_16 | 1000 |  0.0001 | 32 | Adam | 0.093 | 88.34% | 84.15% | ... |
-| vit_l_32 | 2500 | 0.00001 | 128 | SGD | 0.041 | 90.19% | 87.55% | ... |
-| ... | ... | ... | ... | ... | ... | ... | ... | ... | 
+
 
 #### 2. Ablation Study
 Any improvements or modifications of your base model, should be summarized in this table. Feel free to adjust the columns in the table below.
