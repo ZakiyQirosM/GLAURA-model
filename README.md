@@ -1,7 +1,9 @@
 # GALURA - Galucoma Detection with Advanced Retinal Analysis
 
 ## Project Description
-Glaura is an AI CNN model that can detect galucoma.........
+Glaura is an advanced Artificial Intelligence (AI) model powered by Convolutional Neural Networks (CNN), specifically designed to identify and classify retinal images as either glaucomatous or healthy. By deep learning techniques, Glaura analyzes complex patterns and features within retinal scans that are often challenging for the human eye to discern.
+This model is envisioned to serve as a reliable diagnostic tool for ophthalmologists, providing accurate and timely insights to support clinical decision-making. Its development focuses on enhancing early detection of glaucoma—a leading cause of irreversible blindness—thereby contributing to improved patient care and preventative eye health strategies.
+With its robust architecture, Glaura represents a significant step forward in the integration of AI into the field of medical imaging and ophthalmology.
 
 ## Contributor
 | Full Name | Affiliation | Email | LinkedIn | Role |
@@ -43,25 +45,32 @@ This is an improved machine-learning-ready glaucoma dataset using a balanced sub
 #### 1. Metrics
 Accuracy, precision, f1 score, and recall metrics are used as model benchmarks. For comparison, several models were also created.
 
-| Model | Accuracy | Precision | Recal | F1 Score| Note |
+| Model | Accuracy | Precision | Recall | F1 Score| Note |
 | ----- | -------- | --------- | ----- | ------- | ---- |
 | DenseNet169 | 92.5% | 89.2% | 96.8% | 92.9% | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
 | DenseNet121 | 93.3% | 93.9% | 92.7% | 93.3% | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
 | ResNet50 | 93.3% | 91.3% | 95.8% | 93.5% | with augmentation (rotation between -20 until 20 deg, horizontal flip, noise) |
 | Glaura | % | % | % | % | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
 | DenseNet169 | 93.8% | 91% | 97.4% | 94.1% | without augmentation |
-| ResNet50 | % | % | % | % | without augmentation |
+| ResNet50 | 58% | 55% | 88% | 68% | without augmentation |
 | Glaura | 91.3% | 89.8% | 93.3% | 91.5% | without augmentation |
 
 
 
 #### 2. Ablation Study
-here are some experiments and hyperparameter tuning on the main model (Glaura)
+Here are some experiments and hyperparameter tuning on the main model (Glaura)
 
-| layer_A | layer_B | layer_C | layer_D | layer_E | Layer_F | Layer_G | layer_H | layer_I | layer_J | layer_K | layer_L | layer_M | layer_N | layer_O | layer_P | layer_Q | layer_R | layer_S | layer_T | layer_U | layer_V | layer_W | layer_X | layer_Y | layer_Z | Accuracy | Precision |
-| ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------- | -------- | -------- | -------- | -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |
-| Conv2D(32, (3, 3)), BatchNorm, MaxPooling(2,2)  | Conv2D(64, (3, 3)), BatchNorm, MaxPooling(2,2)  | Conv2D(128, (3, 3)), BatchNorm, MaxPooling(2,2) | Conv2D(256, (3, 3), BatchNorm, MaxPooling(2,2) | Flatten | Dense(128), Dropout(0.5), BatchNorm | Dense(64), Dropout(0.5), BatchNorm | Dense(32), Dropout(0.5), BatchNorm | Dense(16), Dropout(0.5), BatchNorm | Dense(8), Dropout(0.5), BatchNorm | Dense(4), Dropout(0.5), BatchNorm | Dense(1) | | | | | | | | | | | | | | | 52.6% | 57.1% |
-| Conv2D(64, (3, 3)), BatchNorm | Conv2D(32, (3, 3)), MaxPooling(2,2) | Conv2D(128, (3, 3)), BatchNorm | Conv2D(128, (3, 3)), Dropout(0.3) | Conv2D(64, (3, 3)), BatchNorm | Conv2D(64, (3, 3)), Dropout(0.3) | Flatten | Dense(128), Dropout(0.5), BatchNorm | Dense(64), Dropout(0.5), BatchNorm | Dense(32), Dropout(0.5), BatchNorm | Dense(16), Dropout(0.5), BatchNorm | Dense(4) | Dense(1) | 50.3% | 71.4% |
+| layer_A | layer_B | layer_C | layer_D | layer_E | Layer_F | Layer_G | layer_H | layer_I | layer_J | layer_K | layer_L | layer_M | layer_N | Precission | Recall | F1-Score | Accuracy |
+| ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------- | -------- | -------- |
+| Conv2D(32, (3, 3)), BatchNorm, MaxPooling((2,2))  | Conv2D(64, (3, 3)), BatchNorm, MaxPooling((2,2))  | Conv2D(128, (3, 3)), BatchNorm, MaxPooling((2,2)) | Conv2D(256, (3, 3), BatchNorm, MaxPooling((2,2)) | Flatten | Dense(128), Dropout(0.5), BatchNorm | Dense(64), Dropout(0.5), BatchNorm | Dense(32), Dropout(0.5), BatchNorm | Dense(16), Dropout(0.5), BatchNorm | Dense(8), Dropout(0.5), BatchNorm | Dense(4), Dropout(0.5), BatchNorm | Dense(1) | - | - |  57.1% | 20.7% | 30.4% | 52.5% |
+| Conv2D(64, (3, 3)), BatchNorm | Conv2D(32, (3, 3)), MaxPooling((2,2)) | Conv2D(128, (3, 3)), BatchNorm | Conv2D(128, (3, 3)), Dropout(0.3) | Conv2D(64, (3, 3)), BatchNorm | Conv2D(64, (3, 3)), Dropout(0.3) | Flatten | Dense(128), Dropout(0.5), BatchNorm | Dense(64), Dropout(0.5), BatchNorm | Dense(32), Dropout(0.5), BatchNorm | Dense(16), Dropout(0.5), BatchNorm | Dense(4) | Dense(1) | - | 71.4% | 1.2% | 2.5% | 50.3%|
+| Conv2D(32, (3, 3)), MaxPooling((2,2)) | Conv2D(32, (3, 3)), BatchNorm | Conv2D(64, (3, 3)) | Conv2D(32, (3, 3)), MaxPooling((2,2)), BatchNorm | Conv2D(128, (3, 3)) | Conv2D(256, (3, 3)), MaxPooling((2,2)), BatchNorm | Flatten | Dense(128), Dropout(0.5), BatchNorm | Dense(64), Dropout(0.5), BatchNorm | Dense(32), Dropout(0.5), BatchNorm | Dense(16), Dropout(0.5), BatchNorm | Dense(8), Dropout(0.5), BatchNorm | Dense(4), Dropout(0.5), BatchNorm | Dense(1) | 58.1% | 39.7% | 47.2% | 55.5% |
+| Conv2D(16, (3,3)), MaxPooling | Conv2D(32, (3,3)) | Conv2D(64, (3,3)) x2, MaxPooling | Flatten | Dense(256), BatchNorm | Dense(128), BatchNorm | Dense(64), BatchNorm | Dense(32), BatchNorm | Dense(166), BatchNorm | Dense(4), BatchNorm | Dense(1) | - | - | - | 76.3% | 82.3% | 79.2% | 78.4% |
+| Conv2D(16, (3, 3)), MaxPooling((2,2)) | Conv2D(32, (3, 3)) | Conv2D(64, (3, 3)) x2, MaxPooling | Flatten | Dense(128), BatchNorm | Dense(64), BatchNorm | Dense(32), BatchNorm | Dense(16), BatchNorm | Dense(4), BatchNorm | Dense(1) | - | - | - | - | 82.8% | 76.3% | 79.4% | 80.2% |
+| Conv2D(32, (3,3)), BatchNorm | Conv2D(128, (3,3)), BatchNorm, MaxPooling | Conv2D(64, (3,3)), BatchNorm | Conv2D(64, (3,3)), BatchNorm | Conv2D(256, (3,3)), BatchNorm, MaxPooling | Conv2D(128, (3,3)), BatchNorm | Conv2D(512, (3,3)), BatchNorm, GlobalAveragePooling | Flatten | Dense(256), Dropout(0.4) | Dense(128), Dropout(0.3) | Dense(64), Dropout(0.3) | Dense(1) | - | - | 90.9% | 90.6% | 90.7% | 90.7% |
+| Conv2D(64, (3,3)), BatchNorm | Conv2D(64, (3,3)), BatchNorm, MaxPooling | Conv2D(128, (3,3)), BatchNorm | Conv2D(128, (3,3)), BatchNorm, MaxPooling | Conv2D(256, (3,3)), BatchNorm | Conv2D(256, (3,3)), BatchNorm, GlobalAveragePooling | Flatten | Dense(512), Dropout(0.4) | Dense(64), Dropout(0.3) | Dense(1) | - | - | - | - | 91.4% | 91.9% | 91.7% | 91.6% |
+| Conv2D(64, (3,3)), BatchNorm | Conv2D(64, (3,3)), BatchNorm | Conv2D(256, (3,3)), BatchNorm, MaxPooling | Conv2D(128, (3,3)), BatchNorm | Conv2D(128, (3,3)), BatchNorm | Conv2D(512, (3,3)), BatchNorm, MaxPooling | Conv2D(256, (3,3)), BatchNorm | Conv2D(256, (3,3)), BatchNorm | Conv2D(1024, (3,3)), BatchNorm, MaxPooling | Conv2D(512, (3,3)), BatchNorm | Conv2D(512, (3,3)), BatchNorm | Conv2D(2048, (3,3)), BatchNorm, MaxPooling, GlobalAveragePooling | Dense(512), Dropout(0.4) | Dense(1) | 94.5% | 90.1% | 92.2% | 92.4% |
+| Conv2D(64, (3,3)), BatchNorm | Conv2D(64, (3,3)), BatchNorm | Conv2D(256, (3,3)), BatchNorm, MaxPooling | Conv2D(128, (3,3)), BatchNorm | Conv2D(128, (3,3)), BatchNorm | Conv2D(512, (3,3)), BatchNorm, MaxPooling | Conv2D(256, (3,3)), BatchNorm | Conv2D(256, (3,3)), BatchNorm | Conv2D(1024, (3,3)), BatchNorm, MaxPooling | Flatten | Dense(512), Dropout(0.4) | Dense(128), Dropout(0.3) | Dense(32), Dropout(0.3) | Dense(1) | 89.8% | 93.3% | 91.5% | 91.3% |
 
 #### 3. Training/Validation Curve
 This is the final model's curve of Loss and Accuracy. The curve shows that train and validation is balance enough
@@ -104,7 +113,7 @@ Describe and show how you deploy this project (e.g., using Streamlit or Flask), 
 - Link: https://...
 
 ### Business Model Canvas
-Provide a screenshot of your Business Model Canvas (BMC). Give some explanations, if necessary.
+![BMC](Pictures/BMC.jpg)
 
 ### Short Video
 Provide a link to your short video, that should includes the project background and how it works.
