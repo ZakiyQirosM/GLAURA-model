@@ -60,7 +60,7 @@ Accuracy, precision, f1 score, and recall metrics are used as model benchmarks. 
 | ----- | -------- | --------- | ----- | ------- | ---- |
 | DenseNet169 | 92% | 88.7% | 96.3% | 92.4% | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
 | DenseNet121 | 93.3% | 93.9% | 92.7% | 93.3% | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
-| ResNet50 | 93.3% | 91.3% | 95.8% | 93.5% | with augmentation (rotation between -20 until 20 deg, horizontal flip, noise) |
+| ResNet50 | 93.3% | 91.3% | 95.8% | 93.5% | with augmentation (random rotation, random flip, noise) |
 | Glaura | 89.8% | 89.8% | 89.8% | 89.8% | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
 | DenseNet169 | 93.8% | 91% | 97.4% | 94.1% | without augmentation |
 | DenseNet121 | 93.8% | 91.4% | 96.8% | 94% | without augmentation |
