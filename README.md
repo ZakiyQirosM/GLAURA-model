@@ -18,14 +18,13 @@ With its robust architecture, Glaura represents a significant step forward in th
 
 ## Setup
 ### Prerequisite Packages (Dependencies)
-- pandas==2.1.0
-- PIL==11.0.0
-- tensorflow==2.17.1
-- matplotlib
-- tensorflow-datasets
-- numpy
-- seaborn
-- opencv-python
+- tensorflow==2.13.0
+- tensorflow-datasets==4.10.0
+- matplotlib==3.7.1
+- seaborn==0.12.2
+- opencv-python==4.8.0.74
+- numpy==1.23.5
+
 
 
 ### Environment
