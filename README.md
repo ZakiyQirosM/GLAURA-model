@@ -5,6 +5,9 @@ Glaura is an advanced Artificial Intelligence (AI) model powered by Convolutiona
 This model is envisioned to serve as a reliable diagnostic tool for ophthalmologists, providing accurate and timely insights to support clinical decision-making. Its development focuses on enhancing early detection of glaucoma—a leading cause of irreversible blindness—thereby contributing to improved patient care and preventative eye health strategies.
 With its robust architecture, Glaura represents a significant step forward in the integration of AI into the field of medical imaging and ophthalmology.
 
+Here is a picture that describe the architecture of Glaura
+![Model_Architecture](Pictures/Arsitektur_Model.png)
+
 ## Contributor
 | Full Name | Affiliation | Email | LinkedIn | Role |
 |-----------|-------------|-------|----------|------|
