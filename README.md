@@ -120,7 +120,11 @@ To ensure model's performance, tests were conducted using 10 random new images t
 ### Deployment
 Glaura was deployed on streamlit. Streamlit choosed because streamlit can provide an accessible and user-friendly web application. Through this deployment, users can upload retinal images directly to the platform, where Glaura processes and analyzes the images. Hosting on platforms like Streamlit Community Cloud or other cloud services ensures that the application is scalable and available to users anywhere, facilitating early detection and support for healthcare professionals.
 
-![Deployment](Pictures/Deployment.png)
+![Deployment](Pictures/Deployment1.png)
+<div style="display: flex; justify-content: center;">
+  <img src="Pictures/Deployment.png" alt="Deployment" style="width: 50%; margin-right: 10px;">
+  <img src="Pictures/Deployment2.png" alt="Deployment2" style="width: 50%;">
+</div>
 
 ## Supporting Documents
 ### Presentation Deck
