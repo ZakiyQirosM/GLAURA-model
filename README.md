@@ -1,4 +1,4 @@
-# GALURA - Galucoma Detection with Advanced Retinal Analysis
+# GALURA - Glaucoma Detection with Advanced Retinal Analysis
 
 ## Project Description
 Glaura is an advanced Artificial Intelligence (AI) model powered by Convolutional Neural Networks (CNN), specifically designed to identify and classify retinal images as either glaucomatous or healthy. By deep learning techniques, Glaura analyzes complex patterns and features within retinal scans that are often challenging for the human eye to discern.
@@ -21,6 +21,12 @@ With its robust architecture, Glaura represents a significant step forward in th
 - pandas==2.1.0
 - PIL==11.0.0
 - tensorflow==2.17.1
+- matplotlib
+- tensorflow-datasets
+- numpy
+- seaborn
+- opencv-python
+
 
 ### Environment
 Glaura was trained using Google Colab with detailed specifications as follows
@@ -35,7 +41,7 @@ This is an improved machine-learning-ready glaucoma dataset using a balanced sub
 
 | **RG (Referable Glaucoma)** | **NRG (Non-Referable Glaucoma)** |
 | --- | --- |
-| <img src="Pictures/EyePACS-Glaucoma-57.jpg" width="120"/> <img src="Pictures/Test/RG_2.jpg" width="120"/> <img src="Pictures/Test/RG_1.jpg" width="120"/> <img src="Pictures/Test/RG_3.jpg" width="120"/> <img src="Pictures/Test/RG_4.jpg" width="120"/> <img src="Pictures/Test/RG_5.jpg" width="120"/> | <img src="Pictures/Test/NRG_5.jpg" width="120"/> <img src="Pictures/Test/NRG_4.jpg" width="120"/> <img src="Pictures/Test/NRG_3.jpg" width="120"/>  <img src="Pictures/Test/NRG_2.jpg" width="120"/> <img src="Pictures/Test/NRG_1.jpg" width="120"/> <img src="Pictures/EyePACS-NRG-37.jpg" width="120"/> |
+| <img src="Pictures/EyePACS-Glaucoma-57.jpg" width="120"/> <img src="Pictures/RG_17.jpg" width="120"/> <img src="Pictures/RG_18.jpg" width="120"/> <img src="Pictures/RG_5.jpg" width="120"/> <img src="Pictures/RG_4.jpg" width="120"/> <img src="Pictures/RG_1.jpg" width="120"/> | <img src="Pictures/NRG_4.jpg" width="120"/> <img src="Pictures/NRG_5.jpg" width="120"/> <img src="Pictures/NRG_3.jpg" width="120"/>  <img src="Pictures/NRG_20.jpg" width="120"/> <img src="Pictures/NRG_10.jpg" width="120"/> <img src="Pictures/EyePACS-NRG-37.jpg" width="120"/> |
 
 
 
@@ -53,10 +59,12 @@ Accuracy, precision, f1 score, and recall metrics are used as model benchmarks. 
 | DenseNet169 | 92% | 88.7% | 96.3% | 92.4% | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
 | DenseNet121 | 93.3% | 93.9% | 92.7% | 93.3% | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
 | ResNet50 | 93.3% | 91.3% | 95.8% | 93.5% | with augmentation (rotation between -20 until 20 deg, horizontal flip, noise) |
-| Glaura | % | % | % | % | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
+| Glaura | 89.8% | 89.8% | 89.8% | 89.8% | with augmentation (rotation between -20 until 20 deg, horizontal flip) |
 | DenseNet169 | 93.8% | 91% | 97.4% | 94.1% | without augmentation |
+| DenseNet121 | 93.8% | 91.4% | 96.8% | 94% | without augmentation |
 | ResNet50 | 58% | 55% | 88% | 68% | without augmentation |
-| Glaura | 91.3% | 89.8% | 93.3% | 91.5% | without augmentation |
+| Glaura | 93.4% | 91.4% | 95.8% | 93.5% | without augmentation |
+
 
 
 
@@ -73,7 +81,8 @@ Here are some experiments and hyperparameter tuning on the main model (Glaura)
 | Conv2D(32, (3,3)), BatchNorm | Conv2D(128, (3,3)), BatchNorm, MaxPooling | Conv2D(64, (3,3)), BatchNorm | Conv2D(64, (3,3)), BatchNorm | Conv2D(256, (3,3)), BatchNorm, MaxPooling | Conv2D(128, (3,3)), BatchNorm | Conv2D(512, (3,3)), BatchNorm, GlobalAveragePooling | Flatten | Dense(256), Dropout(0.4) | Dense(128), Dropout(0.3) | Dense(64), Dropout(0.3) | Dense(1) | - | - | 90.9% | 90.6% | 90.7% | 90.7% |
 | Conv2D(64, (3,3)), BatchNorm | Conv2D(64, (3,3)), BatchNorm, MaxPooling | Conv2D(128, (3,3)), BatchNorm | Conv2D(128, (3,3)), BatchNorm, MaxPooling | Conv2D(256, (3,3)), BatchNorm | Conv2D(256, (3,3)), BatchNorm, GlobalAveragePooling | Flatten | Dense(512), Dropout(0.4) | Dense(64), Dropout(0.3) | Dense(1) | - | - | - | - | 91.4% | 91.9% | 91.7% | 91.6% |
 | Conv2D(64, (3,3)), BatchNorm | Conv2D(64, (3,3)), BatchNorm | Conv2D(256, (3,3)), BatchNorm, MaxPooling | Conv2D(128, (3,3)), BatchNorm | Conv2D(128, (3,3)), BatchNorm | Conv2D(512, (3,3)), BatchNorm, MaxPooling | Conv2D(256, (3,3)), BatchNorm | Conv2D(256, (3,3)), BatchNorm | Conv2D(1024, (3,3)), BatchNorm, MaxPooling | Conv2D(512, (3,3)), BatchNorm | Conv2D(512, (3,3)), BatchNorm | Conv2D(2048, (3,3)), BatchNorm, MaxPooling, GlobalAveragePooling | Dense(512), Dropout(0.4) | Dense(1) | 94.5% | 90.1% | 92.2% | 92.4% |
-| Conv2D(64, (3,3)), BatchNorm | Conv2D(64, (3,3)), BatchNorm | Conv2D(256, (3,3)), BatchNorm, MaxPooling | Conv2D(128, (3,3)), BatchNorm | Conv2D(128, (3,3)), BatchNorm | Conv2D(512, (3,3)), BatchNorm, MaxPooling | Conv2D(256, (3,3)), BatchNorm | Conv2D(256, (3,3)), BatchNorm | Conv2D(1024, (3,3)), BatchNorm, MaxPooling | Flatten | Dense(512), Dropout(0.4) | Dense(128), Dropout(0.3) | Dense(32), Dropout(0.3) | Dense(1) | 89.8% | 93.3% | 91.5% | 91.3% |
+| Conv2D(64, (3,3)), BatchNorm | Conv2D(64, (3,3)), BatchNorm | Conv2D(256, (3,3)), BatchNorm, MaxPooling | Conv2D(128, (3,3)), BatchNorm | Conv2D(128, (3,3)), BatchNorm | Conv2D(512, (3,3)), BatchNorm, MaxPooling | Conv2D(256, (3,3)), BatchNorm | Conv2D(256, (3,3)), BatchNorm | Conv2D(1024, (3,3)), BatchNorm, MaxPooling | Flatten | Dense(512), Dropout(0.4) | Dense(128), Dropout(0.3) | Dense(32), Dropout(0.3) | Dense(1) | 93.4% | 91.4% | 95.8% | 93.5% |
+
 
 #### 3. Training/Validation Curve
 This is the final model's curve of Loss and Accuracy. The curve shows that train and validation is balance enough
@@ -85,31 +94,33 @@ This is the final model's curve of Loss and Accuracy. The curve shows that train
 Classification Report:
 |             | precision | recall | f1-score | support |
 | ----------- | --------- | ------ | -------- | ------- |
-|         NRG |      0.93 |   0.89 |    0.91  |     385 |
-|         RG  |      0.90 |   0.93 |    0.91  |     385 |
-|    accuracy |           |        |    0.91  |     770 |
-|   macro avg |      0.91 |   0.91 |    0.91  |     770 |
-|weighted avg |      0.91 |   0.91 |    0.91  |     770 |
+|         NRG |      0.93 |   0.91 |    0.92  |     385 |
+|         RG  |      0.91 |   0.93 |    0.92  |     385 |
+|    accuracy |           |        |    0.92  |     770 |
+|   macro avg |      0.92 |   0.92 |    0.92  |     770 |
+|weighted avg |      0.92 |   0.92 |    0.92  |     770 |
 
 
-To ensure model's performance, tests were conducted using new images that the model has never seen before
+To ensure model's performance, tests were conducted using 10 random new images that the model has never seen before
 | Image | Lable | Predict |
 | ----  | ----- | ------- |
-| [NRG_1.jpg](Pictures/Test/NRG_1.jpg) | NRG | NRG | 
-| [NRG_2.jpg](Pictures/Test/NRG_2.jpg) | NRG | RG | 
-| [NRG_3.jpg](Pictures/Test/NRG_3.jpg) | NRG | NRG | 
-| [NRG_4.jpg](Pictures/Test/NRG_4.jpg) | NRG | NRG | 
-| [NRG_5.jpg](Pictures/Test/NRG_5.jpg) | NRG | NRG | 
-| [RG_1.jpg](Pictures/Test/RG_1.jpg) | RG | RG | 
-| [RG_2.jpg](Pictures/Test/RG_2.jpg) | RG | RG | 
-| [RG_3.jpg](Pictures/Test/RG_3.jpg) | RG | RG | 
-| [RG_4.jpg](Pictures/Test/RG_4.jpg) | RG | RG | 
-| [RG_5.jpg](Pictures/Test/RG_5.jpg) | RG | RG |
+| [NRG_1.jpg](Pictures/NRG_3.jpg) | NRG | NRG | 
+| [NRG_2.jpg](Pictures/NRG_10.jpg) | NRG | NRG | 
+| [NRG_3.jpg](Pictures/NRG_4.jpg) | NRG | NRG | 
+| [NRG_4.jpg](Pictures/NRG_5.jpg) | NRG | NRG | 
+| [NRG_5.jpg](Pictures/NRG_1.jpg) | NRG | NRG | 
+| [RG_1.jpg](Pictures/RG_5.jpg) | RG | RG | 
+| [RG_2.jpg](Pictures/RG_17.jpg) | RG | RG | 
+| [RG_3.jpg](Pictures/RG_18.jpg) | RG | RG | 
+| [RG_4.jpg](Pictures/RG_4.jpg) | RG | NRG | 
+| [RG_5.jpg](Pictures/RG_1.jpg) | RG | RG |
 
 
 
-### Deployment (Optional)
-Describe and show how you deploy this project (e.g., using Streamlit or Flask), if any.
+### Deployment
+Glaura was deployed on streamlit. Streamlit choosed because streamlit can provide an accessible and user-friendly web application. Through this deployment, users can upload retinal images directly to the platform, where Glaura processes and analyzes the images. Hosting on platforms like Streamlit Community Cloud or other cloud services ensures that the application is scalable and available to users anywhere, facilitating early detection and support for healthcare professionals.
+
+![Deployment](Pictures/Deployment.png)
 
 ## Supporting Documents
 ### Presentation Deck
