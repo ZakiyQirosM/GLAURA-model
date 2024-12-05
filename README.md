@@ -104,16 +104,16 @@ Classification Report:
 To ensure model's performance, tests were conducted using 10 random new images that the model has never seen before
 | Image | Lable | Predict |
 | ----  | ----- | ------- |
-| [NRG_1.jpg](Pictures/NRG_3.jpg) | NRG | NRG | 
-| [NRG_2.jpg](Pictures/NRG_10.jpg) | NRG | NRG | 
-| [NRG_3.jpg](Pictures/NRG_4.jpg) | NRG | NRG | 
-| [NRG_4.jpg](Pictures/NRG_5.jpg) | NRG | NRG | 
-| [NRG_5.jpg](Pictures/NRG_1.jpg) | NRG | NRG | 
-| [RG_1.jpg](Pictures/RG_5.jpg) | RG | RG | 
-| [RG_2.jpg](Pictures/RG_17.jpg) | RG | RG | 
-| [RG_3.jpg](Pictures/RG_18.jpg) | RG | RG | 
+| [NRG_3.jpg](Pictures/NRG_3.jpg) | NRG | NRG | 
+| [NRG_10.jpg](Pictures/NRG_10.jpg) | NRG | NRG | 
+| [NRG_4.jpg](Pictures/NRG_4.jpg) | NRG | NRG | 
+| [NRG_5.jpg](Pictures/NRG_5.jpg) | NRG | NRG | 
+| [NRG_1.jpg](Pictures/NRG_1.jpg) | NRG | NRG | 
+| [RG_5.jpg](Pictures/RG_5.jpg) | RG | RG | 
+| [RG_17.jpg](Pictures/RG_17.jpg) | RG | RG | 
+| [RG_18.jpg](Pictures/RG_18.jpg) | RG | RG | 
 | [RG_4.jpg](Pictures/RG_4.jpg) | RG | NRG | 
-| [RG_5.jpg](Pictures/RG_1.jpg) | RG | RG |
+| [RG_1.jpg](Pictures/RG_1.jpg) | RG | RG |
 
 
 
@@ -122,8 +122,8 @@ Glaura was deployed on streamlit. Streamlit choosed because streamlit can provid
 
 ![Deployment](Pictures/Deployment1.png)
 <div style="display: flex; justify-content: center;">
-  <img src="Pictures/Deployment.png" alt="Deployment" style="width: 50%; margin-right: 10px;">
-  <img src="Pictures/Deployment2.png" alt="Deployment2" style="width: 50%;">
+  <img src="Pictures/Deployment.png" alt="Deployment" style="height: 350px; margin-right: 300px;">
+  <img src="Pictures/Deployment2.png" alt="Deployment2" style="height: 350px;">
 </div>
 
 ## Supporting Documents
