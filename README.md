@@ -27,6 +27,7 @@ Here is a picture that describe the architecture of Glaura
 - seaborn==0.12.2
 - opencv-python==4.8.0.74
 - numpy==1.23.5
+- streamlit
 
 
 
@@ -44,11 +45,8 @@ This is an improved machine-learning-ready glaucoma dataset using a balanced sub
 | **RG (Referable Glaucoma)** | **NRG (Non-Referable Glaucoma)** |
 | --- | --- |
 | <img src="Pictures/EyePACS-Glaucoma-57.jpg" width="120"/> <img src="Pictures/RG_17.jpg" width="120"/> <img src="Pictures/RG_18.jpg" width="120"/> <img src="Pictures/RG_5.jpg" width="120"/> <img src="Pictures/RG_4.jpg" width="120"/> <img src="Pictures/RG_1.jpg" width="120"/> | <img src="Pictures/NRG_4.jpg" width="120"/> <img src="Pictures/NRG_5.jpg" width="120"/> <img src="Pictures/NRG_3.jpg" width="120"/>  <img src="Pictures/NRG_20.jpg" width="120"/> <img src="Pictures/NRG_10.jpg" width="120"/> <img src="Pictures/EyePACS-NRG-37.jpg" width="120"/> |
-
-
-
-
 - Link: [Click here](https://www.kaggle.com/datasets/deathtrooper/glaucoma-dataset-eyepacs-airogs-light-v2)
+
 
 ## Results
 ### Model Performance
@@ -134,26 +132,15 @@ Glaura was deployed on streamlit. Streamlit choosed because streamlit can provid
 
 ## Supporting Documents
 ### Presentation Deck
-- Link: https://...
+- Link: [Presentation Deck](https://drive.google.com/drive/folders/1JgbOCcnIjJaw0wBBHcMKpqI83xUvOQuF?usp=sharing)
 
 ### Business Model Canvas
-![BMC](Pictures/BMC.jpg)
+![BMC](Pictures/BMC.png)
 
 ### Short Video
 Provide a link to your short video, that should includes the project background and how it works.
-- Link: https://...
+- Link: [Short Video](https://youtube.com/shorts/aCx1_MFqNic?feature=share)
 
-## References
-Provide all links that support this final project, i.e., papers, GitHub repositories, websites, etc.
-- Link: https://...
-- Link: https://...
-- Link: https://...
-
-## Additional Comments
-Provide your team's additional comments or final remarks for this project. For example,
-1. ...
-2. ...
-3. ...
 
 ## How to Cite
 If you find this project useful, we'd grateful if you cite this repository:
