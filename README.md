@@ -17,6 +17,7 @@ Here is a picture that describe the architecture of Glaura
 | Divo Kalama | Universitas Siber Asia | divoakademi@gmail.com | [link](https://www.linkedin.com/in/divokalama/) |Team Member |
 | Fadhilah Ishma Diyanah | Universitas Sebelas Maret | fadhilahishma19@gmail.com | [link](https://www.linkedin.com/in/fadhilahishma/) | Team Member |
 | Aditia Prathama | PT. Pama Persada Nusantara, Politeknik Negeri Sriwijaya | aditiaprathama01576@gmail.com | - | Team Member |
+| Devi Marta Hasnanda | Universitas Negeri Surabaya | dmartahasnanda@gmail.com | [link](https://www.linkedin.com/in/devi-marta-hasnanda/) | Team Member |
 | Nicholas Dominic | Startup Campus, AI Track | nic.dominic@icloud.com | [link](https://linkedin.com/in/nicholas-dominic) | Supervisor |
 
 ## Setup
